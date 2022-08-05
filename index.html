@@ -1,7 +1,156 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jovan Bartlett</title>
+    <meta name="description" content="Jovan Bartlett's mechanical engineering portfolio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Merriweather:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+    <div class="everything-container">
+        <div class="heading-container">
+            <div id="title-container" class="title-container">
+                <h1 class="title" onclick="defaultTab()">Jovan&nbsp;Bartlett</h1>
+                <h2 class="subtitle">
+                    <ul>
+                        <li id="contact" onclick="toggleTab('contact')">contact</li>
+                        <li id="projects" onclick="toggleTab('projects')">projects</li>
+                        <li id="about" onclick="toggleTab('about')">about</li>
+                    </ul>
+                </h2>
+                <object id="title-graphic" class="title-graphic" data="./hotend-outline.svg"></object >
+            </div>
+        </div>
+        <div class="view-container">
+            <div id="featured-projects-container" class="featured-projects-container view">
+                <div class="featured-projects">
+                    <div class="featured-project">
+                        <div class="featured-project-edge">
+                            <div class="featured-project-overlay"></div>
+                            <img src="./images/IMG_20211104_190758707.jpg"/>
+                        </div>
+                        <div class="featured-project-caption"><p>Extruder</p></div>
+                    </div>
+                    <div class="featured-project">
+                        <div class="featured-project-edge">
+                            <div class="featured-project-overlay"></div>
+                            <img src="./images/IMG_20220726_135617846.jpg"/>
+                        </div>
+                        <div class="featured-project-caption"><p>Turbine</p></div>
+                    </div>
+                    <div class="featured-project">
+                        <div class="featured-project-edge">
+                            <div class="featured-project-overlay"></div>
+                            <img src="./images/IMG_20210418_133519453_HDR.jpg"/>
+                        </div>
+                        <div class="featured-project-caption"><p>Airplane</p></div>
+                    </div>
+                </div>
+                <h3></h3>
+            </div>
+            <div id="contact-view-container" class="hidden view"><h1>contact</h1></div>
+            <div id="projects-view-container" class="hidden view"><h1>projects</h1></div>
+            <div id="about-view-container" class="hidden view"><h1>about</h1></div>
+        </div>
+    </div>
+    <script>
+        // funny lerp stuff for graphic
+        let titleGraphic = document.getElementById("title-graphic");
+        let mouseOffset = [0, 0];
+        let currentOffset = [0, 0];
+        
+        window.addEventListener('mousemove', (event) => {
+            mouseOffset = [((event.clientX/window.innerWidth)-0.5)*2, ((event.clientY/window.innerHeight)-0.5)*2];
+        });
+
+        function update() {
+            currentOffset[0] = currentOffset[0] + (mouseOffset[0] - currentOffset[0]) * 0.5;
+            currentOffset[1] = currentOffset[1] + (mouseOffset[1] - currentOffset[1]) * 0.5;
+            titleGraphic.style.transform = `translate(${currentOffset[0] * 2 - 50}%, ${currentOffset[1] * 2 - 50}%)`
+            window.requestAnimationFrame(update);
+        }
+        update();
+        
+        // tabs
+        let headingContainer = document.getElementById("title-container");
+        let defaultView = document.getElementById("featured-projects-container");
+        let tabs = {
+            contact: [false, document.getElementById("contact"), document.getElementById("contact-view-container")],
+            projects: [false, document.getElementById("projects"), document.getElementById("projects-view-container")],
+            about: [false, document.getElementById("about"), document.getElementById("about-view-container")],
+        }
+        
+        function fadeIn(e) {
+            console.log(e);
+            e.style.zIndex = "5";
+            e.classList.add("fadeIn");
+            e.classList.remove("hidden");
+            setTimeout(() => {
+                e.classList.remove("fadeIn");
+                e.style.zIndex = "0";
+            }, 300)
+        }
+
+        function fadeOut(e) {
+            console.log(e);
+            e.classList.add("fadeOut");
+            setTimeout(() => {
+                e.classList.add("hidden");
+                e.classList.remove("fadeOut");
+            }, 300)
+        }
+
+        function defaultTab() {
+            let wasActive = false;
+            for (const [key, data] of Object.entries(tabs)) {
+                if (tabs[key][0])
+                    wasActive = true;
+                tabs[key][0] = false;
+                tabs[key][1].className = "";
+                fadeOut(tabs[key][2]);
+            }
+            if (wasActive) {
+                headingContainer.classList.remove("title-container-active");
+                fadeIn(defaultView);
+            }
+        }
+
+        function toggleTab(keyToToggle) {
+            let active = false;
+            for (const [key, data] of Object.entries(tabs)) {
+                if (keyToToggle === key) {
+                    tabs[key][0] = !tabs[key][0];
+                } else {
+                    tabs[key][0] = false;
+                }
+                if (tabs[key][0]) {
+                    active = true;
+                    tabs[key][1].className = "tab-active";
+                    fadeIn(tabs[key][2]);
+                } else {
+                    tabs[key][1].className = "";
+                    fadeOut(tabs[key][2]);
+                }
+                tabs[key][1].style.pointerEvents = "none";
+            }
+            setTimeout(() => {
+                for (const [key, data] of Object.entries(tabs)) { tabs[key][1].style.pointerEvents = "all"; }
+            }, 300)
+            if (active) {
+                headingContainer.classList.add("title-container-active");
+                fadeOut(defaultView);
+            }
+            else {
+                headingContainer.classList.remove("title-container-active");
+                fadeIn(defaultView);
+            }
+
+        }
+    </script>
+</body>
 </html>

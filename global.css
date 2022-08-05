@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(./grid.jpg);
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    overflow: hidden;
+}
+
+.everything-container {
+    /* border: 1px solid #000; */
+    width: 60%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+#home {
+    padding: 10px 30px;
+    float: right;
+    font-size: 15pt;
+}
+
+.heading-container {
+    /* border: 1px solid red; */
+    padding: 3em;
+    font-size: 20pt;
+}
+
+.title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 17pt;
+    padding: 0;
+    margin: 0;
+    /* font-family: 'Open-Sans', sans-serif; */
+    font-style: italic;
+    font-weight: normal;
+}
+
+.featured-projects-container {
+    width: 700px;
+}
+
+.featured-title {
+    font-weight: 100;
+}

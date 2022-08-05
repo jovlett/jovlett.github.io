@@ -1,9 +1,15 @@
+@font-face {
+    font-family: Chomsky;
+    src: url(Chomsky.woff2);
+}
 body {
     margin: 0;
     padding: 0;
     background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(./grid.jpg);
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    overflow: hidden;
+    /* font-family: 'Atkinson Hyperlegible', sans-serif; */
+    font-family: "Merriweather", serif;
+
+    overflow-x: hidden;
 }
 
 .everything-container {
@@ -26,8 +32,11 @@ body {
 }
 
 .title {
+    /* font-family: serif; */
+    font-family: 'Playfair Display', serif;
     font-weight: bold;
     margin: 0;
+    text-transform: uppercase;
 }
 
 .subtitle {
@@ -45,4 +54,13 @@ body {
 
 .featured-title {
     font-weight: 100;
+}
+
+#leaves-container {
+    pointer-events: none;
+    width: 100%;
+    opacity: .3;
+    position:absolute;
+    top:0;
+    left:0;
 }

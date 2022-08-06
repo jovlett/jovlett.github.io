@@ -24,9 +24,9 @@
                         <li id="about" onclick="toggleTab('about')">about</li>
                     </ul>
                 </h2>
-                <!-- <object class="title-graphic" style="opacity: 0.2;" data="./hotend-outline-wire.svg"></object > -->
-                <img class="title-graphic" src="./hotend-outline.svg" style="opacity: 0.2;"></img >
-                    <img class="title-graphic" src="./hotend-outline.svg"></img >
+                <img class="title-graphic" src="./stroke.png" style="transform: translate(-47%, -105%); width:530px; height:50px; filter:contrast(0) brightness(1.7) sepia(100%) saturate(3.6) hue-rotate(0deg);"/>
+                <img class="title-graphic title-graphic-parallax" src="./hotend-outline.svg" style="opacity: 0.2;"/>
+                <img class="title-graphic title-graphic-parallax" src="./hotend-outline.svg" style="opacity: 0.4;"/>
             </div>
         </div>
         <div class="view-container">
@@ -54,7 +54,6 @@
                         <div class="featured-project-caption"><p>Airplane</p></div>
                     </div>
                 </div>
-                <h3></h3>
             </div>
             <div id="contact-view-container" class="hidden view"><h1 class="view-title">contact</h1></div>
             <div id="projects-view-container" class="hidden view">
@@ -66,39 +65,36 @@
                 </div>
                 <div class="projects-rows-container">
                     <div class="projects-row">
-                        <img style="flex:1" src="./images/IMG_20210617_191352729_HDR.jpg"></img>
-                        <img style="flex:.5" src="./images/IMG_20210807_090114449_HDR.jpg"></img>
-                        <img style="flex:.7" src="./images/IMG_20220513_133157208.jpg"></img>
+                        <div style="flex:1" class="project-row-item"><img src="./images/IMG_20210617_191352729_HDR.jpg"></img></div>
+                        <div style="flex:.5" class="project-row-item"><img src="./images/IMG_20210807_090114449_HDR.jpg"></img></div>
+                        <div style="flex:.7" class="project-row-item"><img src="./images/IMG_20220513_133157208.jpg"></img></div>
                     </div>
                     <div class="projects-row">
-                        <img style="flex:1" src="./images/IMG_20211104_190758707.jpg"></img>
-                        <img style="flex:.5" src="./images/IMG_20210418_133519453_HDR.jpg"></img>
-                        <img style="flex:.7" src="./images/IMG_20220513_133157208.jpg"></img>
-                        <img style="flex:.8" src="./images/IMG_20220726_135617846.jpg"></img>
+                        <div style="flex:1" class="project-row-item"><img src="./images/IMG_20211104_190758707.jpg"></img></div>
+                        <div style="flex:.5" class="project-row-item"><img src="./images/IMG_20210418_133519453_HDR.jpg"></img></div>
+                        <div style="flex:.7" class="project-row-item"><img src="./images/IMG_20220513_133157208.jpg"></img></div>
+                        <div style="flex:.8" class="project-row-item"><img src="./images/IMG_20220726_135617846.jpg"></img></div>
                     </div>
                     <div class="projects-row">
-                        <img style="flex:1" src="./images/IMG_20210617_191352729_HDR.jpg"></img>
-                        <img style="flex:.5" src="./images/IMG_20210807_090114449_HDR.jpg"></img>
-                        <img style="flex:.7" src="./images/IMG_20220513_133157208.jpg"></img>
+                        <div style="flex:1" class="project-row-item"><img src="./images/IMG_20210617_191352729_HDR.jpg"></img></div>
+                        <div style="flex:.5" class="project-row-item"><img src="./images/IMG_20210807_090114449_HDR.jpg"></img></div>
+                        <div style="flex:.7" class="project-row-item"><img src="./images/IMG_20220513_133157208.jpg"></img></div>
                     </div>
                     <div class="projects-row">
-                        <img style="flex:1" src="./images/IMG_20211104_190758707.jpg"></img>
-                        <img style="flex:.5" src="./images/IMG_20210418_133519453_HDR.jpg"></img>
-                        <img style="flex:.7" src="./images/IMG_20220513_133157208.jpg"></img>
-                        <img style="flex:.8" src="./images/IMG_20220726_135617846.jpg"></img>
+                        <div style="flex:1" class="project-row-item"><img src="./images/IMG_20211104_190758707.jpg"></img></div>
+                        <div style="flex:.5" class="project-row-item"><img src="./images/IMG_20210418_133519453_HDR.jpg"></img></div>
+                        <div style="flex:.7" class="project-row-item"><img src="./images/IMG_20220513_133157208.jpg"></img></div>
+                        <div style="flex:.8" class="project-row-item"><img src="./images/IMG_20220726_135617846.jpg"></img></div>
                     </div>
                 </div>
             </div>
             <div id="about-view-container" class="hidden view"><h1 class="view-title">about</h1></div>
         </div>
         <!-- <div style="height:450px;"></div> -->
-        <div id="leaves-container">
-            <img src="./foliage/monst5.svg" style="position: absolute; right: 0px; top: 0; transform: scale(2.75); transform-origin: top right;"/>
-        </div>
     </div>
     <script>
         // funny lerp stuff for graphic
-        let titleGraphics = document.getElementsByClassName("title-graphic");
+        let titleGraphics = document.getElementsByClassName("title-graphic-parallax");
         let mouseOffset = [0, 0];
         let currentOffset = [0, 0];
         
@@ -107,10 +103,10 @@
         });
 
         function update() {
-            currentOffset[0] = currentOffset[0] + (mouseOffset[0] - currentOffset[0]) * 0.5;
-            currentOffset[1] = currentOffset[1] + (mouseOffset[1] - currentOffset[1]) * 0.5;
+            currentOffset[0] = currentOffset[0] + (mouseOffset[0] - currentOffset[0]) * 0.6;
+            currentOffset[1] = currentOffset[1] + (mouseOffset[1] - currentOffset[1]) * 0.6;
             for (var i = 0; i < titleGraphics.length; i++) {
-                titleGraphics[i].style.transform = `translate(${currentOffset[0] * (i+1) * 2 - 50}%, ${currentOffset[1] * (i+1) * 2 - 50}%)`
+                titleGraphics[i].style.transform = `translate(${currentOffset[0] * (i+1) * 2 - 50}%, ${currentOffset[1] * (i+1) * 2 - 70}%)`
             }
             window.requestAnimationFrame(update);
         }

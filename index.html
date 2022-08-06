@@ -106,7 +106,7 @@
             currentOffset[0] = currentOffset[0] + (mouseOffset[0] - currentOffset[0]) * 0.6;
             currentOffset[1] = currentOffset[1] + (mouseOffset[1] - currentOffset[1]) * 0.6;
             for (var i = 0; i < titleGraphics.length; i++) {
-                titleGraphics[i].style.transform = `translate(${currentOffset[0] * (i+1) * 2 - 50}%, ${currentOffset[1] * (i+1) * 2 - 70}%)`
+                titleGraphics[i].style.transform = `translate(${currentOffset[0] * (i+1) * 2 - 50}%, ${currentOffset[1] * (i+1) * 2 - 60}%)`
             }
             window.requestAnimationFrame(update);
         }

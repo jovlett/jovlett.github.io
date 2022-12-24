@@ -1,0 +1,42 @@
+.gallery-container {
+    position: fixed;
+    top: calc(105px + calc(var(--pad) * 2));
+    height: calc((100vh - 105px) - calc(var(--pad) * 4));
+    width: calc(100vw - calc(var(--pad) * 4));
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    width: 200vw;
+    height: calc((100vh - 75px) - calc(var(--pad) * 5));
+    /* overflow: hidden; */
+    /* gap: 10px; */
+    justify-content: start;
+}
+
+.gallery-item {
+    float: right;
+    flex: 1;
+    padding: 5px;
+    max-width: 600px;
+    filter: contrast(.9) brightness(1) saturate(1.1);
+    height: calc(((100vh - 105px) - calc(var(--pad) * 4)) / 3);
+    cursor: pointer;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.invis-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.invis-scroll::-webkit-scrollbar { 
+    display: none;
+    width: 0;
+    height: 0;
+}

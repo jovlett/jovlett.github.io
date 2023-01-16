@@ -1,23 +1,32 @@
+import projects from "../../assets/projects/projects.js"
 export default {
     template: `
     <div>
         <div class="project-split">
             <ul class="project-list no-select">
                 <li
-                    v-for="(route, i) in new Array(17).fill('hi')"
+                    v-for="(project, i) in projects"
                     :key="i"
-                    @click="select()"
-                    :class="{active: i == 0}"
-                >
-                    {{route}} {{i}}
-                </li>
+                    @click="select(i)"
+                    :class="{ active: i == selected }"
+                >{{project.title}}</li>
             </ul>
             <div class="project-content-container">
-                <div class="project-content">
-                "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+                <div class="project-content" v-html="projects[selected].article">
                 </div>
             </div>
         </div>
     </div>
     `,
+    data() {
+        return {
+            selected: 0,
+            projects: projects
+        };
+    },
+    methods: {
+        select(i) {
+            this.selected = i;
+        }
+    },
 };

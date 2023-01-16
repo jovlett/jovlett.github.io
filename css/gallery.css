@@ -4,39 +4,79 @@
     height: calc((100vh - 105px) - calc(var(--pad) * 4));
     width: calc(100vw - calc(var(--pad) * 4));
     overflow: hidden;
-    pointer-events: none;
+    /* pointer-events: none; */
+    opacity: 1;
 }
 
 .gallery {
     display: flex;
-    flex-wrap: wrap;
     flex-flow: row wrap;
-    align-items: flex-end;
-    width: 200vw;
-    height: calc((100vh - 75px) - calc(var(--pad) * 5));
-    /* overflow: hidden; */
-    /* gap: 10px; */
+    align-items: flex-start;
+    width: 6000px;
+    height: calc((100vh - 105px) - calc(var(--pad) * 4));
+    overflow: hidden;
+    gap: 10px;
     justify-content: start;
 }
 
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+
 .gallery-item {
     float: right;
-    flex: 1;
-    padding: 5px;
-    max-width: 600px;
-    filter: contrast(.9) brightness(1) saturate(1.1);
-    height: calc(((100vh - 105px) - calc(var(--pad) * 4)) / 3);
+    flex-grow: 1;
+    width: fit-content;
+    filter: contrast(1) brightness(1) saturate(1.1);
+    height: 33%;
     cursor: pointer;
     object-fit: cover;
-    transition: .7s;
+    transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fade .2s both;
+    margin: 0px;
+    overflow:hidden;
+
 }
 
-.invis-scroll {
+.gallery-item:hover img {
+    transform: rotate(1deg) scale(1.06);
+}
+
+.gallery-item:after {
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    background: url(https://storage.googleapis.com/www.joathrent.com/jovan-resources/pfplmao.png) repeat;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: .6s;
+}
+
+/* .invis-scroll {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
 .invis-scroll::-webkit-scrollbar { 
     display: none;
     width: 0;
     height: 0;
+} */
+
+.space-container {
+    z-index: 100;
+    position: fixed;
+    top: calc(105px + calc(var(--pad) * 2));
+    height: calc((100vh - 105px) - calc(var(--pad) * 4) - 10px);
+    width: calc(100vw - calc(var(--pad) * 4));
+    overflow: scroll;
+    background-color: #fff8;
+}
+
+.scroll-space {
+    pointer-events: none;
 }

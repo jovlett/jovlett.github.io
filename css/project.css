@@ -6,11 +6,11 @@
 }
 
 .project-list {
-    border-right: 1px solid var(--txt);
+    border-right: 1px solid var(--mid);
     min-width: 200px;
-    max-height: 200px;
-
-    overflow-y:scroll;
+    height: calc((100vh - 105px) - calc(var(--pad) * 4));
+    overflow-x: visible;
+    overflow-y: scroll;
 }
 
 .project-list li { 
@@ -21,8 +21,13 @@
     margin-top: 5px;
 }
 
+.project-list li:hover {
+    padding-left: 3px;
+}
+
 .project-list li.active {
-    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -55,5 +60,22 @@
 }
 
 .project-content {
+    margin-top: -20px;
+}
 
+.project-content .image-row {
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.project-content .image-row-item {
+    height: 100%;
+}
+
+.project-content .image-row-item img {
+    height: 100%;
+    object-fit: cover;
 }

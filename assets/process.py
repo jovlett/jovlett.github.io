@@ -1,7 +1,7 @@
 import glob
 import cv2
 
-for fn in glob.glob("./assets/images/raw/*"):
+for fn in glob.glob("./assets/images/raw/*.jpg"):
     img = cv2.imread(fn)
     # scale the image so the shortest side is 400px
     scale = 400.0 / min(img.shape[0], img.shape[1])

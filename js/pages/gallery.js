@@ -53,49 +53,64 @@ const images = [
     "./assets/images/downscaled/robot upscale.jpg",
     "./assets/images/downscaled/stock xray.jpg",
     "./assets/images/downscaled/thought.png",
+    "./assets/images/downscaled/321922615_1487253371767220_6130948321082030350_n.jpg",
+    "./assets/images/downscaled/321817708_182105554437037_314541975815846569_n.jpg",
+    "./assets/images/downscaled/322034883_3374810166120545_1630504519450288209_n.jpg",
 ].reverse();
 export default {
     data() {
         return {
             images: images,
+            loaded: [],
             scrollHeight: 0,
             scrollOffset: 0,
             scrollPercent: 0,
+            targetPosition: 0,
             position: 0,
             transformString: 'translateX(0px)'
         }
     },
     template: `
     <div class="invis-scroll">
-        <div ref="space" class="scroll-space"></div>
-        <div ref="container" class="gallery-container no-select">
-            <div ref="gallery" class="gallery no-select"  :style="{'transform': transformString }">
-                <img class="gallery-item" v-for="(image, idx) in images" :src="image">
-                </img>
+        <div ref="container" class="gallery-container">
+            <div ref="gallery" class="gallery" :style="{'transform': transformString }">
+                <div class="gallery-item" v-for="(image, idx) in loaded" :key="idx" :ref="'item' + idx">
+                    
+                </div>
             </div>
         </div>
     </div>
     `,
     methods: {
         loop() {
-            let pad = Math.max(20, Math.min(window.innerWidth, window.innerHeight) * 0.04);
-            try {
-                this.$refs.space.style.height = this.$refs.gallery.getBoundingClientRect().width + 'px';
-            } catch (e) {}
-            let width = this.$refs.gallery.getBoundingClientRect().width;
-
-            let diff = (this.$refs.container.getBoundingClientRect().width - this.$refs.container.getBoundingClientRect().height) + pad * 2;
-            let offset = Math.min(this.$refs.space.getBoundingClientRect().top, 0);
-            let percent = offset / width;
-            offset -= diff * percent;
-
-            this.position += (offset - this.position) * 0.1;
-
-            this.transformString = 'translateX('+this.position +'px)';
+            this.position += (this.targetPosition - this.position) * 0.1;
+            this.transformString = 'translateX('+this.position * -1 +'px)';
             requestAnimationFrame(this.loop);
+        },
+        load(img) {
+            console.log(img)
         }
     },
     mounted() {
         this.loop();
+        this.loaded.forEach((image, idx) => {
+            let img = image;
+            img.classList.add('gallery-item');
+            img.style.animationDelay = (idx / this.loaded.length) / 3 + "s";
+            this.$refs["item"+idx][0].appendChild(img);
+        });
+
+        this.$refs.container.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            let max = this.$refs.container.scrollWidth - this.$refs.container.clientWidth;
+            this.targetPosition = Math.max(Math.min(this.targetPosition + evt.deltaY, max), 0);
+        });
+    },
+    created() {
+        this.images.forEach((image) => {
+            let img = new Image();
+            img.src = image;
+            this.loaded.push(img);
+        });
     },
 };

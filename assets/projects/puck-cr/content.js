@@ -1,7 +1,11 @@
+import showImage from "/js/show-image.js";
 export default {
     "title": "Puck (250lb)",
     "name": "puck-cr",
     "category": "CR",
+    directives: {
+        showImage,
+    },
     "template": `
 <div class="project-article">
     <div class="project-split" style="margin-top:0;">
@@ -35,12 +39,12 @@ export default {
             </p>
             <p>Proposed CAD as of Oct 1, 2023:</p>
             <div class="image-row">
-                <div class="image-row-item"><img src="assets/projects/puck-cr/2.png"></div>
-                <div class="image-row-item"><img src="assets/projects/puck-cr/3.png"></div>
+                <div class="image-row-item"><img src="assets/projects/puck-cr/2.png" v-showImage></div>
+                <div class="image-row-item"><img src="assets/projects/puck-cr/3.png" v-showImage></div>
             </div>
         </div>
         <div class="project-sidebar">
-            <div class="project-sidebar-item" style="background-image: url('assets/projects/puck-cr/1.png');"></div>
+            <div class="project-sidebar-item" style="background-image: url('assets/projects/puck-cr/1.png');" src="assets/projects/puck-cr/1.png" v-showImage></div>
         </div>
     </div>
     <div class="dither divider"></div>
@@ -55,7 +59,7 @@ export default {
             </p>
         </div>
         <div class="project-sidebar">
-            <div class="project-sidebar-item" style="background-image: url('assets/projects/puck-cr/4.png'); height:500px; background-position: center 40%;"></div>
+            <div class="project-sidebar-item" style="background-image: url('assets/projects/puck-cr/4.png'); height:500px; background-position: center 40%;" src="assets/projects/puck-cr/4.png" v-showImage></div>
         </div>
     </div>
     <div class="dither divider"></div>
@@ -66,8 +70,8 @@ export default {
             I created the flat pattern of the box using Fusion 360’s sheet metal environment. We plasma cut the pattern and made half of it’s bends using a sheet metal brake. However, with some clearance issues in the brake, we encouraged the rest of the bends to form using a hammer, vice, and some elbow grease.
             </p>
             <div class="image-row">
-                <div class="image-row-item"><img src="assets/projects/puck-cr/6.png"></div>
-                <div class="image-row-item"><img src="assets/projects/puck-cr/5.png"></div>
+                <div class="image-row-item"><img src="assets/projects/puck-cr/6.png" v-showImage></div>
+                <div class="image-row-item"><img src="assets/projects/puck-cr/5.png" v-showImage></div>
             </div>
             <p>
                 The result fits very well into the chassis and gives ample space for the batteries, motor controllers, radio, and power switch.
@@ -88,7 +92,7 @@ export default {
         </div>
         
         <div class="project-sidebar dither">
-            <div class="project-sidebar-item" style="align-self: self-end; background-image: url('assets/projects/puck-cr/7.png'); height: 300px; width:400px; background-position: center bottom;"></div>
+            <div class="project-sidebar-item" style="align-self: self-end; background-image: url('assets/projects/puck-cr/7.png'); height: 300px; width:400px; background-position: center bottom;" src="assets/projects/puck-cr/7.png" v-showImage></div>
         </div>
     </div>
 </div>

@@ -1,7 +1,12 @@
+import showImage from "/js/show-image.js";
+
 export default {
     "title": "FRC '22",
     "name": "frc-2022",
     "category": "FRC",
+    "directives": {
+        showImage
+    },
     "template":`
     <div class="project-article" style="max-width: 50vw; margin: 0;">
         <p style="margin-top: 0;">
@@ -17,7 +22,7 @@ export default {
         Until next year...
         </p>
         <div class="image-row">
-            <div class="image-row-item"><img style="aspect-ratio:1.6" src="assets/projects/frc-2022/1.png"></div>
+            <div class="image-row-item"><img style="aspect-ratio:1.6" src="assets/projects/frc-2022/1.png" v-showImage></div>
         </div>
     </div>
     `,

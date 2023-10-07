@@ -1,3 +1,5 @@
+import showImage from "../show-image.js";
+console.log(showImage)
 const images = [
     "./assets/images/downscaled/6shoot ratchet transparent.png",
     "./assets/images/downscaled/axis xy cad.png",
@@ -58,6 +60,9 @@ const images = [
     "./assets/images/downscaled/322034883_3374810166120545_1630504519450288209_n.jpg",
 ].reverse();
 export default {
+    directives: {
+        showImage
+    },
     data() {
         return {
             images: images,
@@ -74,8 +79,8 @@ export default {
     <div class="invis-scroll">
         <div ref="container" class="gallery-container">
             <div ref="gallery" class="gallery" :style="{'transform': transformString }">
-                <div class="gallery-item" v-for="(image, idx) in loaded" :key="idx" :ref="'item' + idx">
-                    
+                <div class="gallery-item" v-for="(image, idx) in loaded" :key="idx" :ref="'item' + idx" :src="image.src" v-showImage>
+
                 </div>
             </div>
         </div>
@@ -92,7 +97,7 @@ export default {
         }
     },
     mounted() {
-        this.loop();
+        setTimeout(this.loop, 500);
         this.loaded.forEach((image, idx) => {
             let img = image;
             img.classList.add('gallery-item');

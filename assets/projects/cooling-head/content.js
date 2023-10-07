@@ -1,9 +1,14 @@
+import showImage from "/js/show-image.js";
+
 export default {
     "title": "Custom 3D Printer Cooling",
     "name": "cooling-head",
+    "directives": {
+        showImage,
+    },
     "template":`
         <div class="image-row">
-            <div class="image-row-item"><img style="aspect-ratio:1.6" src="assets/projects/frc-2022/1.png"></div>
+            <div class="image-row-item"><img style="aspect-ratio:1.6" src="assets/projects/frc-2022/1.png" v-showImage></div>
         </div>
         <p>
         Finished up our last off-season event this weekend - I couldn't have asked for a better way to retire this machine.<br/>

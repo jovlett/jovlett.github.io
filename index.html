@@ -44,6 +44,12 @@
         </div>
         <div class="side-text no-select">▞&emsp;power to the local dreamer</div>
         <div class="side-text2 no-select">&emsp;◢◣</div>
+        
+        <div class="image-modal" v-if="showImageModal" @click="showImageModal = false">
+            <div class="image-modal-content">
+                <img class="image-modal-item" :src="imageModalSrc" class="">
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>

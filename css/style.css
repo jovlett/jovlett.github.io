@@ -233,3 +233,36 @@ body::-webkit-scrollbar {
 .contact-item img {
     width: 20px;
 }
+
+
+.image-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000c;
+    animation: modal-fade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-modal-content {
+    transform: translate(50vw, 50vh);
+}
+
+.image-modal-item {
+    
+    max-width: 60vw;
+    max-height: 60vh;
+    animation: modal-item-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate(-50%, -50%);
+}
+
+@keyframes modal-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modal-item-in {
+    from { transform: translate(-50%, calc(-50px - 50%)); }
+    to { transform: translate(-50%, -50%); }
+}

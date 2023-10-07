@@ -1,4 +1,5 @@
 import projects from "../../assets/projects/projects.js"
+import showImage from "../show-image.js";
 
 const components = {};
 for (const project of projects) {

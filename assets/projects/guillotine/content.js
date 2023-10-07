@@ -1,4 +1,9 @@
+import showImage from "/js/show-image.js";
+
 export default {
+    "directives": {
+        showImage
+    },
     "title": "Prop Guillotine",
     "name": "guillotine",
     "template": `
@@ -10,8 +15,8 @@ export default {
             Revisiting the design after building a little, it's pretty thick. I may chop off 6-12" from a side and see how that looks. I forgot to model gussets/support in CAD, but the frame seems sturdy enough so far.
             </p>
             <div class="image-row">
-                <div class="image-row-item"><img style="" src="assets/projects/guillotine/2.png"></div>
-                <div class="image-row-item"><img style="" src="assets/projects/guillotine/3.png"></div>
+                <div class="image-row-item"><img style="" src="assets/projects/guillotine/2.png" v-showImage></div>
+                <div class="image-row-item"><img style="" src="assets/projects/guillotine/3.png" v-showImage></div>
             </div>
             <p>
             9/16/22 - Frame update - we built it out a little more and found a wine rack that’ll work great as the table.<br/><br/>
@@ -21,7 +26,7 @@ export default {
             </p>
         </div>
         <div class="project-sidebar">
-            <div class="project-sidebar-item" style="background-image: url('assets/projects/guillotine/1.png');"></div>
+            <div class="project-sidebar-item" style="background-image: url('assets/projects/guillotine/1.png');" src="assets/projects/guillotine/1.png" v-showImage></div>
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@ import ProjectPage from "./pages/project.js";
 import GalleryPage from "./pages/gallery.js";
 import ContactPage from "./pages/contact.js";
 
-const BASE_STORAGE = "https://storage.googleapis.com/www.joathrent.com/jovan-resources/";
+import EventBus from "./event-bus.js";
 const routes = [
     {
         path: "/",
@@ -29,11 +29,13 @@ const router = new VueRouter({
     routes,
 });
 
-let app = new Vue({
+const app = new Vue({
     router,
     el: "#app",
     data: {
         isPlaying: true,
+        showImageModal: false,
+        imageModalSrc: "",
     },
     methods: {
         play() {
@@ -60,5 +62,10 @@ let app = new Vue({
         } else {
             this.stop();
         }
+
+        EventBus.$on("showImage", (src) => {
+            this.showImageModal = true;
+            this.imageModalSrc = src;
+        });
     }
 });

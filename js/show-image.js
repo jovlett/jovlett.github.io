@@ -5,7 +5,7 @@ export default {
 
     inserted(el, binding, vnode, prevVnode) {
         const src = el.getAttribute("src");
-        el.hqSrc = src.replace("downscaled", "_raw");
+        el.hqSrc = src.replace("downscaled", "raw");
 
         const showImageEvent = () => {
             console.log("showing image")

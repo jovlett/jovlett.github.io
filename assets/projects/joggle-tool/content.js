@@ -2,7 +2,7 @@ export default {
     "title": "Joggle Tool",
     "name": "joggle-tool",
     "template":`
-    <div class="project-article" style="margin: 0 auto; max-width: 50vw;">
+    <div class="project-article" style="margin: 0; max-width: 50vw;">
         <p style="margin-top: 0;">
         On the airplane, the tabbed sheet metal shown in the picture holds the canopy bubble to its frame. Each tab needs to have a joggle to fit around & clamp onto the polycarbonate bubble. However, the bubble varies in thickness, so the sheet metal tabs are cut in different widths and have to be joggled to different heights.
         <br/><br/>

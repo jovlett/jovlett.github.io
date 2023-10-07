@@ -3,7 +3,7 @@ export default {
     "name": "frc-2022",
     "category": "FRC",
     "template":`
-    <div class="project-article" style="max-width: 50vw; margin: 0 auto;">
+    <div class="project-article" style="max-width: 50vw; margin: 0;">
         <p style="margin-top: 0;">
         Finished up our last off-season event this weekend - I couldn't have asked for a better way to retire this machine.<br/>
         After rebuilding the front of the robot, adding intake hard stops, and switching out the tracker camera mount, the team competed at Capital City Classic, going 5-7 against multiple world finalists in the bracket.

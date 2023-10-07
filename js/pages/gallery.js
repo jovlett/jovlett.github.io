@@ -1,5 +1,5 @@
 import showImage from "../show-image.js";
-console.log(showImage)
+
 const images = [
     "./assets/images/downscaled/6shoot ratchet transparent.png",
     "./assets/images/downscaled/axis xy cad.png",
@@ -79,7 +79,7 @@ export default {
     <div class="invis-scroll">
         <div ref="container" class="gallery-container">
             <div ref="gallery" class="gallery" :style="{'transform': transformString }">
-                <div class="gallery-item" v-for="(image, idx) in loaded" :key="idx" :ref="'item' + idx" :src="image.src" v-showImage>
+                <div class="gallery-item" v-for="(image, idx) in loaded" :key="idx" :ref="'item' + idx" :src="image.src" v-showImage cursor="pointer">
 
                 </div>
             </div>

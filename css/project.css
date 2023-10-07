@@ -107,6 +107,7 @@
 .image-row-item img {
     height: 100%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .project-sidebar {
@@ -120,6 +121,7 @@
     height: 100%;
     background-position: center;
     background-size: cover;
+    cursor: pointer;
 }
 
 

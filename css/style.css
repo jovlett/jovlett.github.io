@@ -16,6 +16,11 @@
 }
 @font-face {
     font-family: Helvetica;
+    src: url(../assets/fonts/Helvetica-Bold.ttf);
+    font-weight: bolder;
+}
+@font-face {
+    font-family: Helvetica;
     src: url(../assets/fonts/Helvetica-Oblique.ttf);
     font-style: italic;
 }
@@ -31,18 +36,11 @@
     font-weight: 100;
 }
 
-.fade-enter-active, .fade-leave-active {
-    transition: .3s;
-}
-
-.fade-enter, .fade-leave-to {
-    opacity: 0;
-}
-
 body {
     color: var(--txt);
     background: var(--bg);
     font-family: Helvetica;
+    letter-spacing: 1.4px;
 }
 
 body::-webkit-scrollbar {
@@ -112,10 +110,6 @@ body::-webkit-scrollbar {
     animation: type 0.5s steps(7, end);
 }
 
-.fade-enter-active .main-title, .fade-leave-active .main-title {
-    transition: opacity 0.3s;
-}
-
 .fade-enter, .fade-leave-to {
     opacity: 0;
     animation: type2 0.5s steps(7, end) reverse;
@@ -124,9 +118,13 @@ body::-webkit-scrollbar {
 @keyframes type { from { width: 0; } to { width: 100%; } }
 @keyframes type2 { from { width: 0; } to { width: 100%; } }
 
-.main-text ul {
+.selector {
+    position: sticky;
+    top: 0;
+}
+
+.selector ul {
     font-weight: 100;
-    letter-spacing: 1px;
     margin: 0;
     width: 200px;
 
@@ -134,16 +132,37 @@ body::-webkit-scrollbar {
     list-style: none;
 }
 
-.main-text ul a {
+.selector a {
     all: unset;
-    cursor: pointer;
 }
 
-.main-text li {
-    transition: 1s cubic-bezier(0.16, 1, 0.3, 1);
+.selector > * {
+    cursor: pointer;
+    color: #585858;
 }
-.main-text li:hover {
-    opacity: 0.2;
+
+.selector li {
+    transition: letter-spacing .5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.selector li:not(:first-child) {
+    margin-top: 7px;
+}
+
+.selector li:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+.selector li.active {
+    opacity: 1;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.selector li.active::before {
+    content: "▞ ";
 }
 
 .side-text {
@@ -202,12 +221,12 @@ body::-webkit-scrollbar {
     right: var(--pad);
     text-align: right;
     font-weight: 100;
-    letter-spacing: 1px;
     width: 200px;
 }
 
 .contact-item {
     filter: invert(1);
+    user-select: none;
     margin-left: 215px;
 }
 

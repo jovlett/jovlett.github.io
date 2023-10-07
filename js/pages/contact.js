@@ -7,11 +7,6 @@ export default {
                 <img class="contact-icon" src="./assets/icons/instagram.png"/>
             </a>
         </div>
-        <div class="contact-item" style="display:none">
-            <a href="https://www.instagram.com/jb.engi/">
-                <img class="contact-icon" src="./assets/icons/twitter.png"/>
-            </a>
-        </div>
     </div>
     `,
 };

@@ -15,35 +15,31 @@
     <div id="app">
         <div class="main-container">
             <div class="main-wrapper">
-                <video autoplay muted loop class="main-bg" ref="video" v-show="isPlaying">
+                <video autoplay muted loop class="main-bg" ref="video" :style="{ opacity: isPlaying ? 1 : 0.5}">
                     <source src="../../assets/hero2.mp4" type="video/mp4">
                 </video>
                 <p class="subtitle no-select" v-show="isPlaying">I'm doing this out of sheer boredom over a Chipotle employee type beat.</p>
-                <h1 class="mini-title no-select" v-if="!isPlaying">JOVAN <wbr>BARTLETT</h1>
                 <div class="main-text">
-                    <div class="menu-container">
+                    <div class="menu-container selector">
                         <ul class="nav-list no-select">
                             <li
                                 v-for="route in $router.options.routes"
                                 :key="route.path"
+                                :class="[ route.path === $router.currentRoute.path ? 'active' : 'hi' ]"
                             >
-                                <router-link :to="route.path">
-                                    {{route.name}}{{route.path === $router.currentRoute.path ? '*' : ''}}
-                                </router-link>
+                                <router-link :to="route.path">{{route.name}}</router-link>
                             </li>
                         </ul>
                     </div>
-                    <transition name="fade">
-                        <keep-alive>
-                            <div class="view-container">
-                            <router-view
-                                class="view"
-                                :style="{'margin-top': (!isPlaying ? '30px' : '0')}"
-                            >
-                                </router-view>
-                            </div>
-                        </keep-alive>
-                    </transition>
+                    <keep-alive>
+                        <div class="view-container">
+                        <router-view
+                            class="view"
+                            :style="{'margin-top': (!isPlaying ? '30px' : '0')}"
+                        >
+                            </router-view>
+                        </div>
+                    </keep-alive>
                 </div>
             </div>
         </div>

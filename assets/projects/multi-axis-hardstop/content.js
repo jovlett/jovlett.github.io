@@ -1,6 +1,7 @@
 export default {
     "title": "Multi-Axis Hardstop",
-    "article": `
+    "name": "multi-axis-hardstop",
+    "template": `
     <div class="project-article" style="max-width: 50vw; margin: 0 auto;">
         <p style="margin-top: 0;">
         This design can be used on a Kurt machine vise or a T-slotted table to position stock repeatably. It's pretty sick!<br/>

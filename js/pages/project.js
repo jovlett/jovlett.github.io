@@ -1,5 +1,14 @@
 import projects from "../../assets/projects/projects.js"
+
+const components = {};
+for (const project of projects) {
+    if (project.template) {
+        components[project.name] = project;
+    }
+}
+
 export default {
+    components: components,
     template: `
     <div>
         <div class="project-split">
@@ -16,10 +25,12 @@ export default {
                 </div>
             </div>
             <div class="project-content-container" v-if="selected">
-                <div class="project-content" v-if="selected.article" v-html="selected.article"></div>
-                <div class="project-content" v-else>
-                    <p style="margin: 0; color: #585858">This one isn't finished yet - stay tuned!</p>
-                </div>
+                <keep-alive>
+                    <component class="project-content" v-if="selected.template" :is="selected.name"></component>
+                    <div class="project-content" v-else>
+                        <p style="margin: 0; color: #585858">This one isn't finished yet - stay tuned!</p>
+                    </div>
+                </keep-alive>
             </div>
         </div>
     </div>

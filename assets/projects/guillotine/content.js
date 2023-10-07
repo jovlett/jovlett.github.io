@@ -1,6 +1,7 @@
 export default {
     "title": "Prop Guillotine",
-    "article": `
+    "name": "guillotine",
+    "template": `
 <div class="project-article">
     <div class="project-split" style="margin-top:0;">
         <div style="max-width: 50vw;">

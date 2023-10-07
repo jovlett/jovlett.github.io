@@ -1,6 +1,7 @@
 export default {
     "title": "Custom 3D Printer Cooling",
-    "article":`
+    "name": "cooling-head",
+    "template":`
         <div class="image-row">
             <div class="image-row-item"><img style="aspect-ratio:1.6" src="assets/projects/frc-2022/1.png"></div>
         </div>

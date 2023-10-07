@@ -1,7 +1,8 @@
 export default {
     "title": "Puck (250lb)",
+    "name": "puck-cr",
     "category": "CR",
-    "article": `
+    "template": `
 <div class="project-article">
     <div class="project-split" style="margin-top:0;">
         <div style="max-width: 50vw;">

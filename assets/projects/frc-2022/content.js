@@ -1,7 +1,8 @@
 export default {
     "title": "FRC '22",
+    "name": "frc-2022",
     "category": "FRC",
-    "article":`
+    "template":`
     <div class="project-article" style="max-width: 50vw; margin: 0 auto;">
         <p style="margin-top: 0;">
         Finished up our last off-season event this weekend - I couldn't have asked for a better way to retire this machine.<br/>

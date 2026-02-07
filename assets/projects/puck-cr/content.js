@@ -15,7 +15,7 @@ export default {
             Sierra College Robotics Club. Puck has been competing in the heavyweight division at Robogames since the early 2000’s
             with no major changes. However, after a subpar performance at the 2023 competition, the team is looking to upgrade. 
             <br/>
-            This project is spearheaded by myself and club president Cormac McCreary.
+            This project was spearheaded by myself and Cormac McCreary.
             </p>
             <p>The proposed list of changes to Puck:</p>
             <ul style="padding: revert;">
@@ -33,15 +33,6 @@ export default {
                     <br/>Add a fork option to get under opponents more successfully - ground game is becoming a larger part of the sport, and we must keep up with the competition
                 </li>
             </ul>
-            <p>
-            Tightening bolts on each joint should lock it together. There's a little hole+keyed tab for the stop rod that clamps onto the rod when the screw is tight to hopefully not mar it up. <br/><br/>
-            It's also modular which is nice. If needed, I can make more links for even more reach.
-            </p>
-            <p>Proposed CAD as of Oct 1, 2023:</p>
-            <div class="image-row">
-                <div class="image-row-item"><img src="assets/projects/puck-cr/2.png" v-showImage></div>
-                <div class="image-row-item"><img src="assets/projects/puck-cr/3.png" v-showImage></div>
-            </div>
         </div>
         <div class="project-sidebar">
             <div class="project-sidebar-item" style="background-image: url('assets/projects/puck-cr/1.png');" src="assets/projects/puck-cr/1.png" v-showImage></div>
@@ -57,6 +48,11 @@ export default {
             <p>
                 To make the armor, we found some plates of HDPE at a fellow club member’s workshop. We attempted to laser cut the top plate out of a 0.5” sheet, but the machine went out of commission after 5 hours of continuous cutting. We finished the part with a Sawzall. To make the bottom plates without the laser cutter, we traced a cardboard cutout of the bottom of the robot and used this as a template for the plastic. We used a Sawzall to cut the outer contours while leaving the wheel cutouts to a handheld router. Holes were initially drilled into the metal chassis. We then center-punched the pattern into the plastic before drilling to an intermediate size. The plates were then lined back up to the chassis and drilled to the final size.
             </p>
+            <p>Proposed CAD as of Oct 1, 2023:</p>
+            <div class="image-row">
+                <div class="image-row-item"><img src="assets/projects/puck-cr/2.png" v-showImage></div>
+                <div class="image-row-item"><img src="assets/projects/puck-cr/3.png" v-showImage></div>
+            </div>
         </div>
         <div class="project-sidebar">
             <div class="project-sidebar-item" style="background-image: url('assets/projects/puck-cr/4.png'); height:500px; background-position: center 40%;" src="assets/projects/puck-cr/4.png" v-showImage></div>

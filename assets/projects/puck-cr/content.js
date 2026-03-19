@@ -1,13 +1,15 @@
 import showImage from "/js/show-image.js";
 export default {
-    "title": "Puck (250lb)",
+    "title": "250lb Combat Robot",
     "name": "puck-cr",
     "category": "CR",
     directives: {
         showImage,
     },
     "template": `
+
 <div class="project-article">
+    <div class="project-title"><h1>PUCK: 250lb Combat Robot</h1></div>
     <div class="project-split" style="margin-top:0;">
         <div style="max-width: 50vw;">
             <p style="margin-top: 0">

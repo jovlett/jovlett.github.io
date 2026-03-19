@@ -69,6 +69,11 @@
     border-bottom: 1px solid var(--mid);
 }
 
+.project-content h2 {
+    margin-top: 10px;
+    border-bottom: 1px solid var(--mid);
+}
+
 .project-content .project-split {
     gap: 20px;
     margin-top: 20px;
@@ -96,8 +101,8 @@
     justify-content: center;
     gap: 20px;
     padding: 20px 0;
-    border-top: 1px solid var(--mid);
-    border-bottom: 1px solid var(--mid);
+    /* border-top: 1px solid var(--mid);    */
+    /* border-bottom: 1px solid var(--mid); */
 }
 
 .image-row-item {
@@ -124,13 +129,13 @@
     cursor: pointer;
 }
 
-
 .dither {
     background-image: url(../assets/images/dither.png);
     background-size: 16px;
     image-rendering: pixelated;
     background-repeat: repeat;
     flex: 1;
+    max-width: 75vw;
 }
 
 .divider {
